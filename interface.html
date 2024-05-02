@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Filter Interface</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    #titleBox {
+        background-color: #f0f0f0;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    #titleBox:hover {
+        background-color: #ccc;
+    }
+    #contentBox {
+        padding: 10px;
+        font-size: 16px;
+        display: none;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+</style>
+</head>
+<body>
+
+<div id="titleBox">Search Compounds</div>
+<div id="contentBox">
+    <!-- PHP code will go here to generate content dynamically -->
+    <p>Content for compounds filter...</p>
+</div>
+
+<script>
+    document.getElementById('titleBox').onclick = function() {
+        var contentBox = document.getElementById('contentBox');
+        if (contentBox.style.display === 'none') {
+            contentBox.style.display = 'block';
+        } else {
+            contentBox.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with GPT</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        #chatContainer {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+        .message {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: lightgrey;
+            border-radius: 8px;
+            width: fit-content;
+        }
+        .user {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+        }
+        .gpt {
+            align-self: flex-start;
+            background-color: #e9ecef;
+        }
+        #inputContainer {
+            display: flex;
+        }
+        #textInput {
+            flex-grow: 1;
+            padding: 8px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        #sendButton {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="chatContainer">
+    <div id="messages"></div>
+    <div id="inputContainer">
+        <input type="text" id="textInput" placeholder="Ask something...">
+        <button id="sendButton">Send</button>
+    </div>
+</div>
+
+<script>
+    const sendButton = document.getElementById('sendButton');
+    const textInput = document.getElementById('textInput');
+    const messagesContainer = document.getElementById('messages');
+
+    sendButton.addEventListener('click', function() {
+        const question = textInput.value.trim();
+        if (question) {
+            addMessage(`You: ${question}`, 'user');
+            callChatGPT(question);
+            textInput.value = ''; // Clear the input field
+        }
+    });
+
+    function callChatGPT(question) {
+        fetch('https://bioinfmsc8.bio.ed.ac.uk/api/gpt4', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                prompt: question
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                addMessage(`GPT: ${data.choices[0].text.trim()}`, 'gpt');
+            })
+            .catch(error => console.error('Error calling OpenAI:', error));
+    }
+
+
+    function addMessage(text, sender) {
+        const messagesContainer = document.getElementById('messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender);
+        messageDiv.textContent = text;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+    }
+</script>
+</body>
+</html>

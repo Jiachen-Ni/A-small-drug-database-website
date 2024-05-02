@@ -1,0 +1,218 @@
+.main-content {
+    flex: 1;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    font-size: 16px;
+    background-color: aliceblue;
+
+}
+.bigbox {
+    display: flex;
+}
+html {
+    background-color: white;
+}
+html, body {
+    height: 100%;
+    margin-top: 3px;
+}
+body {
+    width:1024px;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    padding-top: 0;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: Arial;
+
+}
+.welcome {
+    font-size: 24px;
+}
+.show-supplier {
+}
+
+.text-background {
+    width: 600px;
+    color: white;
+    background-color: lightslategrey; /* Or any other color you want */
+    border-radius: 10px; /* Adjust the value to increase or decrease the roundness */
+    padding: 5px 10px; /* Adjust for desired spacing inside the background */
+    display: inline-block; /* To apply padding correctly */
+}
+.supplier-form {
+    /* Styles for the form */
+    max-width: 400px; /* Adjust as needed */
+    margin: 0; /* Center the form in the page */
+}
+
+.supplier-list {
+    /* Remove default list styling and padding */
+    list-style-type: none;
+    padding: 0;
+}
+
+.supplier-item {
+    /* Styles for each label */
+    display: block; /* Display as block to ensure checkboxes align vertically */
+    margin-bottom: 0px; /* Add space between the checkbox items */
+    cursor: pointer; /* Change cursor to pointer when hovering */
+}
+
+.supplier-item input[type="checkbox"] {
+    margin-right: 20px; /* Space between checkbox and label text */
+}
+
+.filter-form {
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right:auto;
+
+}
+
+.filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Adjust spacing between rows */
+}
+
+.filter-section > div {
+    flex: 1;
+}
+
+/* Add some spacing between the Min and Max inputs */
+.filter-section > div:not(:last-child) {
+    padding-right: 30px;
+}
+
+.label-and-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-button-container {
+    text-align: center;
+}
+
+.results-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.results-table th, .results-table td {
+    border: 1px solid #f2e8dc; /* ?????? */
+    padding: 4px;
+}
+
+.results-table th {
+    background-color: #faf4e6; /* ?????? */
+    color: black;
+}
+
+.results-table tr:nth-child(odd) {
+    background-color: #fdfaf0; /* ????????????? */
+}
+
+.results-table tr:hover {
+    background-color: #f0f0f0; /* ?????????? */
+}
+
+
+
+.manu-table {
+    margin-top: 5px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.manu-table th, .manu-table td {
+    border: 1px solid #f2e8dc; /* ??? */
+    padding: 8px;
+}
+
+.manu-table th {
+    background-color: #faf4e6; /* ????? */
+    color: black;
+}
+
+.manu-table tr:nth-child(odd) {
+    background-color: #fdfaf0; /* ?????????? */
+}
+
+.manu-table tr:hover {
+    background-color: #f0f0f0; /* ???????? */
+}
+
+.toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: lightgrey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.interactive-iframe {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000; /* Ensure the iframe is below the toggle button */
+}
+
+.titleBox {
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 8px; /* ?? */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ????? */
+}
+
+.titleBox:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* ???????? */
+}
+
+
+.contentBox {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* ???? */
+    margin-top: 5px; /* ????????? */
+    margin-bottom: 10px;
+}
+.normalBox {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* ?? */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ?? */
+    margin-top: 5px; /* ????????? */
+    margin-bottom: 10px;
+}
